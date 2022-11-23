@@ -8,7 +8,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/NatanTrosmanGMIT/Pathfinder">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.PNG" alt="Logo" width="300" height="300">
   </a>
 
   <h3 align="center">Pathfinder</h3>
@@ -55,7 +55,7 @@
 ## About The Project
 
   <a href="https://github.com/NatanTrosmanGMIT/Pathfinder">
-    <img src="images/screenshot.png" alt="Logo" width="400" height="400">
+    <img src="images/screenshot.PNG" alt="Screenshot" width="600" height="600">
   </a>
   
 PLACEHOLDER
