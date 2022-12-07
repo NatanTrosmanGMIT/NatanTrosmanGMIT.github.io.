@@ -148,9 +148,18 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 PLACEHOLDER
 
-- [x] Add Changelog
+- [x] Add ReadMe
 - [x] Add back to top links
-- [ ] Add "components" document to easily copy & paste sections of the readme
+- [x] Add project basics
+- [ ] Add algorithms
+    - [x] Dijkstra's Algorithm
+    - [ ] A* Search
+    - [ ] Greedy Best-first Search
+    - [ ] Swarm Algorithm
+    - [ ] Convergent Swarm Algorithm
+    - [ ] Bidirectional Swarm Algorithm
+    - [ ] Breadth-first Search
+    - [ ] Depth-first Search
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
