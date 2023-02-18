@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
-
 import './PathfindingVisualizer.css';
 
 const START_NODE_ROW = 10;
@@ -78,9 +77,62 @@ export default class PathfindingVisualizer extends Component {
 
     return (
       <>
-        <button onClick={() => this.visualizeDijkstra()}>
-          Visualize Dijkstra's Algorithm
-        </button>
+        <div id="navbarDiv">
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a id="refreshButton" class="navbar-brand" href="#">
+                  Pathfinder
+                </a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Algorithms
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li id='startButtonDijkstra'><a href="#">Dijkstra's Algorithm</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Mazes &amp; Patterns
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu"></ul>
+                </li>
+
+                <li class="dropdown">
+                  <a
+                    id="adjustSpeed"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#">
+                    Speed: Fast
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li id="adjustFast">
+                      <a href="#">Fast</a>
+                    </li>
+                    <li id="adjustAverage">
+                      <a href="#">Average</a>
+                    </li>
+                    <li id="adjustSlow">
+                      <a href="#">Slow</a>
+                    </li>
+                  </ul>
+                </li>
+                <button onClick={() => this.visualizeDijkstra()}>
+                  Visualize
+                </button>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
         <div className="grid">
           {grid.map((row, rowIdx) => {
             return (
@@ -107,6 +159,7 @@ export default class PathfindingVisualizer extends Component {
             );
           })}
         </div>
+        <></>
       </>
     );
   }
