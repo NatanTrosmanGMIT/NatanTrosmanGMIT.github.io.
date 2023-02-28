@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
+import {aStar} from '../algorithms/aStar';
 import './PathfindingVisualizer.css';
 
 const START_NODE_ROW = 10;
@@ -36,8 +37,33 @@ export default class PathfindingVisualizer extends Component {
   handleMouseUp() {
     this.setState({mouseIsPressed: false});
   }
+  animateShortestPath(nodesInShortestPathOrder) {
+    for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
+      setTimeout(() => {
+        const node = nodesInShortestPathOrder[i];
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          'node node-shortest-path';
+      }, 50 * i);
+    }
+  }
 
-  animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
+  // animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
+  //   for (let i = 0; i <= visitedNodesInOrder.length; i++) {
+  //     if (i === visitedNodesInOrder.length) {
+  //       setTimeout(() => {
+  //         this.animateShortestPath(nodesInShortestPathOrder);
+  //       }, 10 * i);
+  //       return;
+  //     }
+  //     setTimeout(() => {
+  //       const node = visitedNodesInOrder[i];
+  //       document.getElementById(`node-${node.row}-${node.col}`).className =
+  //         'node node-visited';
+  //     }, 10 * i);
+  //   }
+  // }
+
+  animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder) {
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
@@ -53,23 +79,22 @@ export default class PathfindingVisualizer extends Component {
     }
   }
 
-  animateShortestPath(nodesInShortestPathOrder) {
-    for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
-      setTimeout(() => {
-        const node = nodesInShortestPathOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          'node node-shortest-path';
-      }, 50 * i);
-    }
-  }
-
   visualizeDijkstra() {
     const {grid} = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
     const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
     const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-    this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+    this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
+  }
+
+  visualizeAstar(algorithm) {
+    const {grid} = this.state;
+    const startNode = grid[START_NODE_ROW][START_NODE_COL];
+    const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
+    const visitedNodesInOrder = aStar(grid, startNode, finishNode);
+    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+    this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
   }
 
   render() {
@@ -78,42 +103,54 @@ export default class PathfindingVisualizer extends Component {
     return (
       <>
         <div id="navbarDiv">
-          <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a id="refreshButton" class="navbar-brand" href="#">
+          <nav className="navbar navbar-inverse">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <button
+                  id="refreshButton"
+                  className="navbar-brand"
+                  href="#"
+                  onClick={() => this.visualizeAstar()}>
                   Pathfinder
-                </a>
+                </button>
               </div>
-              <ul class="nav navbar-nav">
-                <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+              <ul className="nav navbar-nav">
+                <li className="dropdown">
+                  <a
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#">
                     Algorithms
-                    <span class="caret"></span>
+                    <span className="caret"></span>
                   </a>
-                  <ul class="dropdown-menu">
-                    <li id='startButtonDijkstra'><a href="#">Dijkstra's Algorithm</a>
+                  <ul className="dropdown-menu">
+                    <li id="startButtonDijkstra">
+                      <a href="#">Dijkstra's Algorithm</a>
                     </li>
                   </ul>
                 </li>
-                <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li className="dropdown">
+                  <a
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#">
                     Mazes &amp; Patterns
-                    <span class="caret"></span>
+                    <span className="caret"></span>
                   </a>
-                  <ul class="dropdown-menu"></ul>
+                  <ul className="dropdown-menu"></ul>
                 </li>
 
-                <li class="dropdown">
+                <li className="dropdown">
                   <a
                     id="adjustSpeed"
-                    class="dropdown-toggle"
+                    className="dropdown-toggle"
                     data-toggle="dropdown"
                     href="#">
                     Speed: Fast
-                    <span class="caret"></span>
+                    <span className="caret"></span>
                   </a>
-                  <ul class="dropdown-menu">
+                  <ul className="dropdown-menu">
                     <li id="adjustFast">
                       <a href="#">Fast</a>
                     </li>
@@ -125,9 +162,6 @@ export default class PathfindingVisualizer extends Component {
                     </li>
                   </ul>
                 </li>
-                <button onClick={() => this.visualizeDijkstra()}>
-                  Visualize
-                </button>
               </ul>
             </div>
           </nav>
