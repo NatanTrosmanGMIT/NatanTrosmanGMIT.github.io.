@@ -1,0 +1,30 @@
+.legend {
+  width: calc(100% - 30px);
+  max-width: 1200px;
+  padding: 25px 0 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-block {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .visited--second {
+    background-color: $visited-second-color;
+  }
+  .visited--third {
+    background-color: $visited-third-color;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pathfinder</title>
+  </head>
+
+  <body>
+    <div class="background">
+      <div class="image"></div>
+    </div>
+    <div class="header">
+      <div class="header__inner">
+        <nav id="nav" class="navigation"></nav>
+        <div class="input-group">
+          <label for="speedVal">Speed:</label>
+          <input type="range" id="speedVal" name="speedVal" />
+        </div>
+        <button type="button" id="clearBtn" class="btn">Clear</button>
+        <button type="button" id="clearWallsBtn" class="btn">Clear Walls</button>
+        <button type="button" id="startBtn" class="btn">Start</button>
+      </div>
+    </div>
+    <div id="container" class="container">
+      <table id="board"></table>
+    </div>
+        <div class="legend">
+      <div class="legend-item">
+        <div class="legend-block visited visited--third"></div>
+        <div class="legend-block visited visited--second"></div>
+        <div class="legend-block visited"></div>
+
+        <span>visited node</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-block unvisited"></div>
+        <span>unvisited node</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-block neighbour"></div>
+        <span>neighbour node</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-block wall"></div>
+        <span>wall</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-block path"></div>
+        <span>path</span>
+      </div>
+    </div>
+    <div class="base-line"></div>
+  </body>
+</html>
