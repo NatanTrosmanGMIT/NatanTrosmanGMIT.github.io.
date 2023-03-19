@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/NatanTrosmanGMIT/Pathfinder">
-    <img src="images/logo.PNG" alt="Logo" width="500" height="350">
+    <img src="Documents/images/logo.PNG" alt="Logo" width="500" height="350">
   </a>
 
   <h3 align="center">Pathfinder</h3>
@@ -20,7 +20,7 @@
     <a href="https://github.com/NatanTrosmanGMIT/Pathfinder"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://clementmihailescu.github.io/Pathfinding-Visualizer/#">View Demo</a>
+    <a href="PLACEHOLDER FOR URL">View Demo</a>
   </p>
 </div>
 
