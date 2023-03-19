@@ -56,7 +56,7 @@
 ## About The Project
 
   <a href="https://github.com/NatanTrosmanGMIT/Pathfinder">
-    <img src="images/screenshot.PNG" alt="Screenshot" width="1100" height="550">
+    <img src="Documents/images/screenshot.PNG" alt="Screenshot" width="1100" height="550">
   </a>
   
 PLACEHOLDER
